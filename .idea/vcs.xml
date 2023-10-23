@@ -2,9 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-<<<<<<< HEAD
-=======
-    <mapping directory="$PROJECT_DIR$/Django Models Basics - Lab/Migrate the Models" vcs="Git" />
->>>>>>> c809453390bfcbd35d4d95378fb5293f6a5c5a44
   </component>
 </project>

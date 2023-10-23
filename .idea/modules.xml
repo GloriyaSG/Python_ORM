@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/.idea/Migrate the Models.iml" filepath="$PROJECT_DIR$/.idea/Migrate the Models.iml" />
+=======
       <module fileurl="file://$PROJECT_DIR$/.idea/Python_ORM.iml" filepath="$PROJECT_DIR$/.idea/Python_ORM.iml" />
+>>>>>>> c809453390bfcbd35d4d95378fb5293f6a5c5a44
     </modules>
   </component>
 </project>

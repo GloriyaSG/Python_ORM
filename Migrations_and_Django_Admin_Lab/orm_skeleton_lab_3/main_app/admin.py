@@ -14,7 +14,6 @@ class ProductAdmin(admin.ModelAdmin):
             'fields': ('category', 'supplier')
         }),
     )
-    date_hierarchy = 'created_on'
 
 
 

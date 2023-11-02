@@ -1,0 +1,2 @@
+def migrations():
+    return None

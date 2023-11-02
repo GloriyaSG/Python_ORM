@@ -20,3 +20,6 @@ class EventRegistration(models.Model):
         max_length=50
     )
     registration_date = models.DateField()
+
+    def __str__(self):
+        return f"{self.participant_name} - {self.event_name}"

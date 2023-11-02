@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'orm_skeleton.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'migrations_exercise_db',
+        'NAME': 'migrations_exercise_db_2',
         'USER': 'postgres-user',
         'PASSWORD': 'password',
         'HOST': 'localhost',

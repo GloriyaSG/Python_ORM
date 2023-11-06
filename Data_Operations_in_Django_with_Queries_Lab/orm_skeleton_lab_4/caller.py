@@ -1,6 +1,6 @@
 import os
 import django
-from datetime import date, datetime
+from datetime import datetime
 
 # Set up Django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "orm_skeleton.settings")

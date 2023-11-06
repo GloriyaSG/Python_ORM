@@ -37,5 +37,4 @@ def add_students():
         student.save()
 
 # Run and print your queries
-add_students()
 print(Student.objects.all())

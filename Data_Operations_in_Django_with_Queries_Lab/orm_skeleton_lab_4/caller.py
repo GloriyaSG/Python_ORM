@@ -36,5 +36,28 @@ def add_students():
             )
         student.save()
 
+def get_students_info():
+    students = []
+    for student in Student.objects.all():
+        students.append(f"Student №{student.student_id}: {student.first_name} {student.last_name};"
+                f" Email: {student.email}")
+    return '\n'.join(students)
+
+
+def update_students_emails():
+    students_records = Student.objects.all()
+
+    for student in students_records:
+        student.email = student.email.replace("university.com", "uni-students.com")
+        student.save()
+
 # Run and print your queries
-print(Student.objects.all())
+# print(Student.objects.all())
+# print(get_students_info())
+
+update_students_emails()
+for student in Student.objects.all():
+    print(student.email)
+
+
+

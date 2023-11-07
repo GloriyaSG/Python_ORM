@@ -51,4 +51,5 @@ def get_capital():
     return Location.objects.filter(is_capital=True).values('name')
 
 def delete_first_location():
+    Location.objects.first().delete()
 

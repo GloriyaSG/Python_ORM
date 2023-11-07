@@ -6,7 +6,8 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "orm_skeleton.settings")
 django.setup()
 
 # Import your models here
-from main_app.models import Pet, Artifact
+from main_app.models import Pet, Artifact, Location
+
 
 # Create queries within functions
 def create_pet(name:str, species:str):
@@ -37,4 +38,17 @@ def delete_all_artifacts():
 #
 # print(create_artifact('Crystal Amulet', 'Mystic Forest', 300, 'A magical amulet believed to bring good fortune', True))
 
+def show_all_locations():
+    locations = Location.objects.all().order_by('-id')
+    return '\n'.join(str(l) for l in locations)
+
+def new_capital():
+    location = Location.objects.first()
+    location.is_capital = True
+    location.save()
+
+def get_capital():
+    return Location.objects.filter(is_capital=True).values('name')
+
+def delete_first_location():
 

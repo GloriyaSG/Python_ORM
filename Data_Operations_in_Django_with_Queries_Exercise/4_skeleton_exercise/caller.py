@@ -6,7 +6,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "orm_skeleton.settings")
 django.setup()
 
 # Import your models here
-from main_app.models import Pet, Artifact, Location, Car
+from main_app.models import Pet, Artifact, Location, Car, Task
 
 
 # Create queries within functions
@@ -76,5 +76,19 @@ def delete_last_car():
 
 # apply_discount()
 # print(get_recent_cars())
+
+def show_unfinished_tasks():
+    unfinished_tasks = Task.objects.filter(is_finished=False)
+    tasks = []
+    for t in unfinished_tasks:
+        tasks.append(f'Task - {t.title} needs to be done until {t.due_date}!')
+    return '\n'.join(tasks)
+
+def complete_odd_tasks():
+    for t in Task.objects.all():
+        if t.id % 2 != 0:
+            t.is_finished = True
+            t.save()
+def encode_and_replace(text: str, task_title: str):
 
 

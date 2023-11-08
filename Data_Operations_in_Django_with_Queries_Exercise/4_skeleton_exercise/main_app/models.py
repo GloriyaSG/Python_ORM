@@ -35,3 +35,21 @@ class Location(models.Model):
     is_capital = models.BooleanField(
         default=False
     )
+
+class Car(models.Model):
+    model = models.CharField(
+        max_length=40
+    )
+    year = models.PositiveIntegerField()
+    color = models.CharField(
+        max_length=40
+    )
+    price = models.DecimalField(
+        decimal_places=2,
+        max_digits=10
+    )
+    price_with_discount = models.DecimalField(
+        default=0,
+        decimal_places=2,
+        max_digits=10
+    )

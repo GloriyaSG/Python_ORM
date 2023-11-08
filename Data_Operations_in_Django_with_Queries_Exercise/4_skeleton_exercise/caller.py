@@ -6,7 +6,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "orm_skeleton.settings")
 django.setup()
 
 # Import your models here
-from main_app.models import Pet, Artifact, Location
+from main_app.models import Pet, Artifact, Location, Car
 
 
 # Create queries within functions
@@ -59,3 +59,20 @@ def delete_first_location():
 # print(show_all_locations())
 # print(new_capital())
 # print(get_capitals())
+def apply_discount():
+    cars = Car.objects.all()
+
+    for car in cars:
+        pr_off = sum(int(x) for x in str(car.year)) / 100
+        disc = float(car.price) * pr_off
+        car.price_with_discount = float(car.price) - disc
+        car.save()
+
+def get_recent_cars():
+    return Car.objects.filter(year__gte=2020).values('model', 'price_with_discount')
+
+def delete_last_car():
+    Car.objects.last().delete()
+
+
+

@@ -90,5 +90,6 @@ def complete_odd_tasks():
             t.is_finished = True
             t.save()
 def encode_and_replace(text: str, task_title: str):
+    pass
 
 

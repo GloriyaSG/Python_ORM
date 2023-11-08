@@ -74,5 +74,7 @@ def get_recent_cars():
 def delete_last_car():
     Car.objects.last().delete()
 
+# apply_discount()
+# print(get_recent_cars())
 
 

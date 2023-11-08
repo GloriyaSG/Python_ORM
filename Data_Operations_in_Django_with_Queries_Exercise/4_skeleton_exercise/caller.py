@@ -40,16 +40,22 @@ def delete_all_artifacts():
 
 def show_all_locations():
     locations = Location.objects.all().order_by('-id')
-    return '\n'.join(str(l) for l in locations)
+    result = []
+    for l in locations.all():
+        result.append(f'{l.name} has a population of {l.population}!')
+    return '\n'.join(result)
 
 def new_capital():
     location = Location.objects.first()
     location.is_capital = True
     location.save()
 
-def get_capital():
+def get_capitals():
     return Location.objects.filter(is_capital=True).values('name')
 
 def delete_first_location():
     Location.objects.first().delete()
 
+# print(show_all_locations())
+# print(new_capital())
+# print(get_capitals())

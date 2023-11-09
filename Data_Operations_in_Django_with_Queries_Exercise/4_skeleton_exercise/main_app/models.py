@@ -62,3 +62,25 @@ class Task(models.Model):
     is_finished = models.BooleanField(
         default=False
     )
+
+class HotelRoom(models.Model):
+    type_choices = (
+                    ('Standart', 'Standart'),
+                    ('Deluxe', 'Deluxe'),
+                    ('Suite', 'Suite')
+                    )
+    room_number = models.PositiveIntegerField()
+    room_type = models.CharField(
+        choices=type_choices
+    )
+    capacity = models.PositiveIntegerField()
+    amenities = models.TextField()
+    price_per_night = models.DecimalField(
+        max_digits=8,
+        decimal_places=2
+    )
+    is_reserved = models.BooleanField(
+        default=False
+    )
+
+

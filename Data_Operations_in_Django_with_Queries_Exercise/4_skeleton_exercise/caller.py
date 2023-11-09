@@ -6,7 +6,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "orm_skeleton.settings")
 django.setup()
 
 # Import your models here
-from main_app.models import Pet, Artifact, Location, Car, Task
+from main_app.models import Pet, Artifact, Location, Car, Task, HotelRoom
 
 
 # Create queries within functions
@@ -102,3 +102,6 @@ def encode_and_replace(text: str, task_title: str):
 # print(Task.objects.get(title ='Sample Task') .description)
 
 
+def get_deluxe_rooms():
+    for room in HotelRoom.objects.all():
+        pass

@@ -90,6 +90,15 @@ def complete_odd_tasks():
             t.is_finished = True
             t.save()
 def encode_and_replace(text: str, task_title: str):
-    pass
+
+    tasks_with_matching_title = Task.objects.filter(title=task_title)
+    decoded_text = ''.join(chr(ord(x) - 3) for x in text)
+
+    for task in tasks_with_matching_title:
+        task.description = decoded_text
+        task.save()
+
+# encode_and_replace("Zdvk#wkh#glvkhv$", "Simple Task")
+# print(Task.objects.get(title ='Sample Task') .description)
 
 

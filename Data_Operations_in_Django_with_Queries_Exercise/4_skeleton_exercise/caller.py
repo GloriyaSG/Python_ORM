@@ -103,4 +103,9 @@ def encode_and_replace(text: str, task_title: str):
 
 
 def get_deluxe_rooms():
+    rooms = []
     for room in HotelRoom.objects.all():
+        if room.id % 2 == 0 and room.room_type == 'Deluxe':
+            rooms.append(f'Deluxe room with number {room.room_number} costs {room.price_per_night}$ per night!')
+    return '\n'.join(rooms)
+

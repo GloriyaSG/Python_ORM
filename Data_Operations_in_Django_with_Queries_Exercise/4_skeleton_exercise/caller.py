@@ -104,4 +104,3 @@ def encode_and_replace(text: str, task_title: str):
 
 def get_deluxe_rooms():
     for room in HotelRoom.objects.all():
-        pass

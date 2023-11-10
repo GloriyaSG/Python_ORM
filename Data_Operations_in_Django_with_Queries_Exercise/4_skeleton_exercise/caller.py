@@ -128,4 +128,9 @@ def reserve_first_room():
     room.is_reserved = True
     room.save()
 
-reserve_first_room()
+def delete_last_room():
+    room = HotelRoom.objects.filter(is_reserved=True).last()
+
+# print(get_deluxe_rooms())
+# reserve_first_room()
+# print(HotelRoom.objects.get(room_number=101).is_reserved)

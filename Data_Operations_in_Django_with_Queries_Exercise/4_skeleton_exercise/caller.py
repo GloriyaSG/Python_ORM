@@ -123,4 +123,9 @@ def increase_room_capacity():
         room_previous_capacity = room.capacity
         room.save()
 
-increase_room_capacity()
+def reserve_first_room():
+    room = HotelRoom.objects.first()
+    room.is_reserved = True
+    room.save()
+
+reserve_first_room()

@@ -109,3 +109,18 @@ def get_deluxe_rooms():
             rooms.append(f'Deluxe room with number {room.room_number} costs {room.price_per_night}$ per night!')
     return '\n'.join(rooms)
 
+def increase_room_capacity():
+    rooms = HotelRoom.objects.all().order_by('id')
+    reserved_rooms = rooms.filter(is_reserved=True)
+    room_previous_capacity = ''
+
+    for room in reserved_rooms:
+        if room_previous_capacity:
+            room.capacity += room_previous_capacity
+        else:
+            room.capacity += room.id
+
+        room_previous_capacity = room.capacity
+        room.save()
+
+increase_room_capacity()

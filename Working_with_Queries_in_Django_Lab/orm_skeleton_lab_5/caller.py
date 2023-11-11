@@ -58,4 +58,4 @@ def add_records_to_database():
     return "Records added to tables Authors, Books and Reviews"
 
 # Run and print your queries
-# print(add_records_to_database())
+print(add_records_to_database())

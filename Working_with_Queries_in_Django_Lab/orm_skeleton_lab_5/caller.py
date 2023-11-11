@@ -86,6 +86,19 @@ def delete_review_by_id(id):
     review.delete()
     return f'Review by {review.reviewer_name} was deleted'
 
+def filter_authors_by_nationalities(natinality):
+    authors = Author.objects.filter(nationality=natinality).order_by('first_name', 'last_name')
+    result = []
+
+    for author in authors:
+        if author.biography:
+            result.append(author.biography)
+        else:
+            result.append(f'{author.first_name} {author.last_name}')
+    return '\n'.join(result)
+
+
+
 
 # Run and print your queries
 
@@ -102,5 +115,14 @@ def delete_review_by_id(id):
 # print(delete_review_by_id(4))
 # print(delete_review_by_id(1))
 # print(delete_review_by_id(8))
+
+print("American authors:")
+print(filter_authors_by_nationalities('American'))
+print()
+print("British authors:")
+print(filter_authors_by_nationalities('British'))
+print()
+print("Authors with no nationalities:")
+print(filter_authors_by_nationalities(None))
 
 

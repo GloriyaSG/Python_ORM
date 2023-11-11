@@ -62,6 +62,17 @@ def find_books_by_genre_and_language(genre, language):
     books = Book.objects.filter(genre=genre, language=language)
     return books
 
+def find_authors_nationalities():
+
+    not_null_national = Author.objects.exclude(nationality=None)
+
+    result = []
+    for author in not_null_national:
+        result.append(f'{author.first_name} {author.last_name} is {author.nationality}')
+
+    return '\n'.join(result)
+
+
 
 # Run and print your queries
 
@@ -71,3 +82,4 @@ def find_books_by_genre_and_language(genre, language):
 # print(find_books_by_genre_and_language("Poetry", "Spanish"))
 # print(find_books_by_genre_and_language("Mystery", "English"))
 
+# print(find_authors_nationalities())

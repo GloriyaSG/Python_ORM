@@ -57,5 +57,17 @@ def add_records_to_database():
     Review.objects.bulk_create(reviews)
     return "Records added to tables Authors, Books and Reviews"
 
+
+def find_books_by_genre_and_language(genre, language):
+    books = Book.objects.filter(genre=genre, language=language)
+    return books
+
+
 # Run and print your queries
-print(add_records_to_database())
+
+# print(add_records_to_database())
+
+# print(find_books_by_genre_and_language("Romance", "English"))
+# print(find_books_by_genre_and_language("Poetry", "Spanish"))
+# print(find_books_by_genre_and_language("Mystery", "English"))
+

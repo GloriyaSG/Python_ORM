@@ -72,6 +72,19 @@ def find_authors_nationalities():
 
     return '\n'.join(result)
 
+def order_books_by_year():
+
+    ordered_books = Book.objects.order_by('publication_year', 'title')
+
+    result = []
+    for book in ordered_books:
+        result.append(f'{book.publication_year} year: {book.title} by {book.author}')
+    return '\n'.join(result)
+
+def delete_review_by_id(id):
+    review = Review.objects.get(id=id)
+    review.delete()
+    return f'Review by {review.reviewer_name} was deleted'
 
 
 # Run and print your queries
@@ -83,3 +96,11 @@ def find_authors_nationalities():
 # print(find_books_by_genre_and_language("Mystery", "English"))
 
 # print(find_authors_nationalities())
+
+# print(order_books_by_year())
+
+# print(delete_review_by_id(4))
+# print(delete_review_by_id(1))
+# print(delete_review_by_id(8))
+
+

@@ -97,7 +97,18 @@ def filter_authors_by_nationalities(natinality):
             result.append(f'{author.first_name} {author.last_name}')
     return '\n'.join(result)
 
+def filter_authors_by_birth_year(year1, year2):
+    authors = Author.objects.filter(birth_date__year__range=(year1, year2)).order_by('-birth_date')
+    result = []
+    for author in authors:
+        result.append(f'{author.birth_date}: {author.first_name} {author.last_name}')
 
+    return '\n'.join(result)
+
+def change_reviewer_name(reviewer_name, new_name):
+    Review.objects.filter(reviewer_name=reviewer_name).update(reviewer_name=new_name)
+    result = Review.objects.all()
+    return result
 
 
 # Run and print your queries
@@ -116,13 +127,31 @@ def filter_authors_by_nationalities(natinality):
 # print(delete_review_by_id(1))
 # print(delete_review_by_id(8))
 
-print("American authors:")
-print(filter_authors_by_nationalities('American'))
-print()
-print("British authors:")
-print(filter_authors_by_nationalities('British'))
-print()
-print("Authors with no nationalities:")
-print(filter_authors_by_nationalities(None))
+# print("American authors:")
+# print(filter_authors_by_nationalities('American'))
+# print()
+# print("British authors:")
+# print(filter_authors_by_nationalities('British'))
+# print()
+# print("Authors with no nationalities:")
+# print(filter_authors_by_nationalities(None))
+
+# print("Authors born between 1980 and 2000:")
+# print(filter_authors_by_birth_year(1980, 2000))
+# print()
+# print("Authors born between 1950 and 1960:")
+# print(filter_authors_by_birth_year(1950, 1960))
+# print()
+# print("Authors born between 2000 and 2010:")
+# print(filter_authors_by_birth_year(2000, 2010))
 
 
+
+# print("Change Alice Johnson to A.J.:")
+# print(change_reviewer_name("Alice Johnson", "A.J."))
+# print()
+# print("Change Bob Wilson to Bobby W.:")
+# print(change_reviewer_name("Bob Wilson", "Bobby W."))
+# print()
+# print("Change A.J. to A. Johnson:")
+# print(change_reviewer_name("A.J.", "A. Johnson"))

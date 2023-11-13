@@ -3,6 +3,40 @@ from django.db import models
 
 # Create your models here.
 
+class ArtworkGallery(models.Model):
+    artist_name = models.CharField(
+        max_length=100)
+
+    art_name = models.CharField(
+        max_length=100
+    )
+    rating = models.IntegerField()
+
+    price = models.DecimalField(
+        max_digits=10,
+        decimal_places=2
+    )
+
+class Laptop(models.Model):
+    CHOICES = ( ("Asus", "Asus"),
+        ("Acer", "Acer"),
+        ("Apple", "Apple"),
+        ("Lenovo", "Lenovo"),
+        ("Dell", "Dell")
+    )
+
+    brand = models.CharField(
+        choices=CHOICES)
+    processor = models.CharField(
+        max_length=100
+    )
+    memory = models.PositiveIntegerField(
+        help_text='Memory in GB'
+    )
+    storage = models.PositiveIntegerField(
+        help_text='Storage in GB'
+    )
+    operation_system = models.CharField()
 class ChessPlayer(models.Model):
     username = models.CharField(max_length=100, unique=True)
     title = models.CharField(max_length=100, default="no title")
@@ -62,16 +96,3 @@ class Workout(models.Model):
     instructor = models.CharField(max_length=100)
 
 
-class ArtworkGallery(models.Model):
-    artist_name = models.CharField(
-        max_length=100)
-
-    art_name = models.CharField(
-        max_length=100
-    )
-    rating = models.IntegerField()
-
-    price = models.DecimalField(
-        max_digits=10,
-        decimal_places=2
-    )

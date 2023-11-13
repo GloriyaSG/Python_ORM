@@ -9,7 +9,7 @@ django.setup()
 from main_app.models import ArtworkGallery
 # Create and check models
 def show_highest_rated_art():
-    art = ArtworkGallery.objects.all().order_by('-rating', 'id').first()
+    art = ArtworkGallery.objects.order_by('-rating', 'id').first()
     return f'{art.art_name} is the highest-rated art with {art.rating} rating!'
 
 def bulk_create_arts(first_art, second_art):

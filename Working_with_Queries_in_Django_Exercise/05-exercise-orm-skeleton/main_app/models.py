@@ -10,7 +10,8 @@ class ArtworkGallery(models.Model):
     art_name = models.CharField(
         max_length=100
     )
-    rating = models.IntegerField()
+    rating = models.IntegerField(
+    )
 
     price = models.DecimalField(
         max_digits=10,
@@ -25,6 +26,13 @@ class Laptop(models.Model):
         ("Dell", "Dell")
     )
 
+    CHOICES_OS = (
+        ("Windows", "Windows"),
+        ("Linux", "Linux"),
+        ("Mac OS", "Mac OS"),
+        ("Chrome OS", "Chrome OS"),
+    )
+
     brand = models.CharField(
         choices=CHOICES)
     processor = models.CharField(
@@ -36,7 +44,13 @@ class Laptop(models.Model):
     storage = models.PositiveIntegerField(
         help_text='Storage in GB'
     )
-    operation_system = models.CharField()
+    operation_system = models.CharField(
+        choices=CHOICES_OS
+    )
+    price = models.DecimalField(
+        max_digits=10,
+        decimal_places=2
+    )
 class ChessPlayer(models.Model):
     username = models.CharField(max_length=100, unique=True)
     title = models.CharField(max_length=100, default="no title")

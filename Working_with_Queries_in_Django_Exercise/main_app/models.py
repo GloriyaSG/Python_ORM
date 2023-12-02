@@ -23,7 +23,7 @@ class Laptop(models.Model):
     )
     class LaptopChoices(models.TextChoices):
         Asus = "Asus"
-        Aser = "Aser"
+        Acer = "Acer"
         Apple = "Apple"
         Lenovo = "Lenovo"
         Dell = "Dell"

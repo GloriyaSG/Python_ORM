@@ -34,15 +34,15 @@ def update_to_512_GB_storage():
     Laptop.objects.filter(brand__in=["Asus","Lenovo"]).update(storage=512)
 
 def update_to_16_GB_memory():
-    Laptop.objects.filter(brand__in=["Apple", "Dell", "Aser"]).update(memory=16)
+    Laptop.objects.filter(brand__in=["Apple", "Dell", "Acer"]).update(memory=16)
 
 def update_operation_systems():
-    Laptop.objects.filter(brand__in=["Asus"]).update(operation_system="Windows")
-    Laptop.objects.filter(brand__in=["Apple"]).update(operation_system="MacOS")
-    Laptop.objects.filter(brand__in=["Dell", "Aser"]).update(operation_system="Linux")
-    Laptop.objects.filter(brand__in=["Lenovo"]).update(operation_system="Chrome OS")
+    Laptop.objects.filter(brand="Asus").update(operation_system="Windows")
+    Laptop.objects.filter(brand="Apple").update(operation_system="MacOS")
+    Laptop.objects.filter(brand__in=["Dell", "Acer"]).update(operation_system="Linux")
+    Laptop.objects.filter(brand="Lenovo").update(operation_system="Chrome OS")
 
-def delete_inexpencive_laptops():
+def delete_inexpensive_laptops():
     Laptop.objects.filter(price__lt=1200).delete()
 
 # Run and print your queries
@@ -55,48 +55,48 @@ def delete_inexpencive_laptops():
 # print(ArtworkGallery.objects.all())
 
 # Create three instances of Laptop
-laptop1 = Laptop(
-    brand='Asus',
-    processor='Intel Core i5',
-    memory=8,
-    storage=256,
-    operation_system='Windows',
-    price=899.99
-)
-
-laptop2 = Laptop(
-    brand='Apple',
-    processor='Apple M1',
-    memory=16,
-    storage=512,
-    operation_system='MacOS',
-    price=1399.99
-
-)
-
-laptop3 = Laptop(
-    brand='Lenovo',
-    processor='AMD Ryzen 7',
-    memory=12,
-    storage=512,
-    operation_system='Linux',
-    price=999.99,
-)
-
-# Create a list of instances
-laptops_to_create = [laptop1, laptop2, laptop3]
-
-# Use bulk_create to save the instances
-bulk_create_laptops(laptops_to_create)
-
-# Execute the following functions
-update_to_512_GB_storage()
-update_operation_systems()
-
-# Retrieve 2 laptops from the database
-asus_laptop = Laptop.objects.filter(brand__exact='Asus').get()
-lenovo_laptop = Laptop.objects.filter(brand__exact='Lenovo').get()
-
-print(asus_laptop.storage)
-print(lenovo_laptop.operation_system)
-
+# laptop1 = Laptop(
+#     brand='Asus',
+#     processor='Intel Core i5',
+#     memory=8,
+#     storage=256,
+#     operation_system='Windows',
+#     price=899.99
+# )
+#
+# laptop2 = Laptop(
+#     brand='Apple',
+#     processor='Apple M1',
+#     memory=16,
+#     storage=512,
+#     operation_system='MacOS',
+#     price=1399.99
+#
+# )
+#
+# laptop3 = Laptop(
+#     brand='Lenovo',
+#     processor='AMD Ryzen 7',
+#     memory=12,
+#     storage=512,
+#     operation_system='Linux',
+#     price=999.99,
+# )
+#
+# # Create a list of instances
+# laptops_to_create = [laptop1, laptop2, laptop3]
+#
+# # Use bulk_create to save the instances
+# bulk_create_laptops(laptops_to_create)
+#
+# # Execute the following functions
+# update_to_512_GB_storage()
+# update_operation_systems()
+#
+# # Retrieve 2 laptops from the database
+# asus_laptop = Laptop.objects.filter(brand__exact='Asus').get()
+# lenovo_laptop = Laptop.objects.filter(brand__exact='Lenovo').get()
+#
+# print(asus_laptop.storage)
+# print(lenovo_laptop.operation_system)
+#
